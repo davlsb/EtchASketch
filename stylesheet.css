@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+}
+
+#grid {
+    display: flex;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100vh;
+    flex-wrap: wrap;
+    justify-content: stretch;
+}
+
+.gridElement {
+    flex-basis: 6.25%;
+    height: 6.25vh;
+    align-self: stretch;
+    border: rgb(127, 144, 255);
+}
