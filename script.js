@@ -7,3 +7,7 @@ for(let i = 0; i < 256; i++){
     console.log("added a div");
     gridDiv.appendChild(div);
 }
+
+gridDiv.addEventListener("mouseover", (event) => {
+    event.target.style.backgroundColor = '#000';
+} );
