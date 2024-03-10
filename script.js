@@ -24,12 +24,15 @@ function askGridSize(){
 
 }
 
+let opacityValue = 0.1;
+
 gridDiv.addEventListener("mouseover", (event) => {
-    let rn = Math.floor(Math.random()*3.9);
-    if(event.target.style.backgroundColor !== 'red' &&
-       event.target.style.backgroundColor !== 'blue' &&
-       event.target.style.backgroundColor !== 'green') 
-       {
+    let rn = Math.floor(Math.random() * 3) + 1;
+    console.log(event.target.style.backgroundColor);
+    if(event.target.style.backgroundColor === ''){
+        
+        event.target.style.opacity = opacityValue;
+
         switch(rn){
             case 1: event.target.style.backgroundColor = 'red';
             break;
@@ -38,5 +41,11 @@ gridDiv.addEventListener("mouseover", (event) => {
             case 3: event.target.style.backgroundColor = 'blue';
             break;       
         }
+
+        //make it darker for the next element, up to 10 elements
+        if(opacityValue < 1){
+            opacityValue += 0.1;
+        }
+
     }
 } );
