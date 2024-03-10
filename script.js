@@ -11,9 +11,11 @@ for(let i = 0; i < gridSize*gridSize; i++){
 
 function askGridSize(){
     gridSize = prompt("What number x number should the grid be, up to 100?");
-    while(gridSize > 100){
-        gridSize = prompt("Please try again but under 100, What number x number should the grid be?");
+    while(gridSize === null || gridSize === "" || isNaN(gridSize) || gridSize < 1 || gridSize > 100){
+        gridSize = prompt("Please try again, under 100, What number x number should the grid be?");
     }
+
+    if(!(gridSize > 0 || gridSize < 100)) gridSize = 16;
 
     gridDiv.innerHTML = ""; //erase existing grid
 

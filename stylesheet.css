@@ -16,3 +16,7 @@ body{
     height: 6.25vh;
     align-self: stretch;
 }
+
+button {
+    width: 100%;
+}
