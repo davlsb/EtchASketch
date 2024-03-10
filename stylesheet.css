@@ -15,6 +15,7 @@ body{
     flex-basis: 6.25%;
     height: 6.25vh;
     align-self: stretch;
+    transition: background-color 0.1s linear;
 }
 
 button {
