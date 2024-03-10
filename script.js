@@ -10,7 +10,11 @@ for(let i = 0; i < gridSize*gridSize; i++){
 }
 
 function askGridSize(){
-    gridSize = prompt("What number x number should the grid be?");
+    gridSize = prompt("What number x number should the grid be, up to 100?");
+    while(gridSize > 100){
+        gridSize = prompt("Please try again but under 100, What number x number should the grid be?");
+    }
+
     gridDiv.innerHTML = ""; //erase existing grid
 
     for(let i = 0; i < gridSize*gridSize; i++){
