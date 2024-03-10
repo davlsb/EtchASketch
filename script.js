@@ -10,22 +10,34 @@ for(let i = 0; i < gridSize*gridSize; i++){
 }
 
 function askGridSize(){
+
+    let previousGridSize = gridSize; // Store the previous value of gridSize
+
     gridSize = prompt("What number x number should the grid be, up to 100?");
-    while(gridSize === null || gridSize === "" || isNaN(gridSize) || gridSize < 1 || gridSize > 100){
-        gridSize = prompt("Please try again, under 100, What number x number should the grid be?");
+    while(true) {
+        if(gridSize === null) {
+            gridSize = previousGridSize; // Restore the previous value if prompt is canceled
+            break; // Break out of the loop
+        } else if(gridSize === "" || isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
+            gridSize = prompt("Please try again, under 100, What number x number should the grid be?");
+        } else {
+            break; // Break out of the loop if a valid input is received
+        }
     }
 
-    if(!(gridSize > 0 || gridSize < 100)) gridSize = 16;
+    if(gridSize !== previousGridSize) {
 
-    gridDiv.innerHTML = ""; //erase existing grid
+        gridDiv.innerHTML = ""; //erase existing grid
 
-    for(let i = 0; i < gridSize*gridSize; i++){
-        const div = document.createElement('div');
-        div.classList.add("gridElement");
-        div.style.flexBasis = `${(100/gridSize)}%`;
-        div.style.height = `${(100/gridSize)}vh`;
-        console.log("added a new div");
-        gridDiv.appendChild(div);
+        for(let i = 0; i < gridSize*gridSize; i++){
+            const div = document.createElement('div');
+            div.classList.add("gridElement");
+            div.style.flexBasis = `${(100/gridSize)}%`;
+            div.style.height = `${(100/gridSize)}vh`;
+            console.log("added a new div");
+            gridDiv.appendChild(div);
+        }
+
     }
 
 }
